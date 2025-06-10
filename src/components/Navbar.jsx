@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const menuItems = [
     { name: 'Home', href: '#home' },
-    { name: 'Testimonials', href: '#testimonials' },
+    { name: '', href: '#testimonials' },
     { name: 'About us', href: '#about' },
     { name: 'Contact us', href: '#contact' }
   ]
