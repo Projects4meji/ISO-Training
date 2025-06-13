@@ -21,7 +21,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-light font-medium mb-4 block">Get in Touch</span>
+          <span className="text-light font-medium mb-4 block">Got any issues?</span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Contact Our Team
           </h2>
