@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaBars, FaTimes, FaArrowRight, FaChevronDown, FaCertificate, FaAward, FaMedal, FaShieldAlt } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -9,10 +10,11 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   const menuItems = [
-    { name: 'Home', to: '/' },
+    { name: 'Home', to: '/', hash: true },
     { 
       name: 'Certifications', 
-      to: '/certifications',
+      to: '/#certifications',
+      hash: true,
       submenu: [
         { name: 'ISO 30000:2009', to: '/certificates/iso-30000', icon: <FaCertificate /> },
         { name: 'ISO/IEC 17025:2005', to: '/certificates/iso-17025', icon: <FaAward /> },
@@ -20,8 +22,8 @@ const Navbar = () => {
         { name: 'HACCP', to: '/certificates/haccp', icon: <FaShieldAlt /> }
       ]
     },
-    { name: 'About us', to: '/about' },
-    { name: 'Contact us', to: '/contact' }
+    { name: 'About us', to: '/#about', hash: true },
+    { name: 'Contact us', to: '/#contact', hash: true }
   ]
 
   return (
@@ -42,7 +44,7 @@ const Navbar = () => {
               transition={{ duration: 0.5 }}
               className="flex items-center space-x-3 relative z-10 pl-4"
             >
-              <Link to="/" className="text-2xl font-bold text-white tracking-wide">ACS-GP</Link>
+              <HashLink smooth to="/#hero" className="text-2xl font-bold text-white tracking-wide">ACS-GP</HashLink>
             </motion.div>
 
             {/* Desktop Menu */}
@@ -50,17 +52,32 @@ const Navbar = () => {
               <div className="flex items-center space-x-10">
                 {menuItems.map((item) => (
                   <div key={item.name} className="relative group">
-                    <Link
-                      to={item.to}
-                      className="text-white/90 hover:text-white transition-colors text-base font-medium cursor-pointer tracking-wide flex items-center"
-                      onMouseEnter={() => item.submenu && setIsDropdownOpen(true)}
-                      onMouseLeave={() => item.submenu && setIsDropdownOpen(false)}
-                    >
-                      {item.name}
-                      {item.submenu && (
-                        <FaChevronDown className="ml-2 text-xs transition-transform group-hover:rotate-180" />
-                      )}
-                    </Link>
+                    {item.hash ? (
+                      <HashLink
+                        smooth
+                        to={item.to}
+                        className="text-white/90 hover:text-white transition-colors text-base font-medium cursor-pointer tracking-wide flex items-center"
+                        onMouseEnter={() => item.submenu && setIsDropdownOpen(true)}
+                        onMouseLeave={() => item.submenu && setIsDropdownOpen(false)}
+                      >
+                        {item.name}
+                        {item.submenu && (
+                          <FaChevronDown className="ml-2 text-xs transition-transform group-hover:rotate-180" />
+                        )}
+                      </HashLink>
+                    ) : (
+                      <Link
+                        to={item.to}
+                        className="text-white/90 hover:text-white transition-colors text-base font-medium cursor-pointer tracking-wide flex items-center"
+                        onMouseEnter={() => item.submenu && setIsDropdownOpen(true)}
+                        onMouseLeave={() => item.submenu && setIsDropdownOpen(false)}
+                      >
+                        {item.name}
+                        {item.submenu && (
+                          <FaChevronDown className="ml-2 text-xs transition-transform group-hover:rotate-180" />
+                        )}
+                      </Link>
+                    )}
                     {item.submenu && (
                       <AnimatePresence>
                         {isDropdownOpen && (
@@ -141,13 +158,24 @@ const Navbar = () => {
               <div className="flex flex-col space-y-4">
                 {menuItems.map((item) => (
                   <div key={item.name}>
-                    <Link
-                      to={item.to}
-                      className="text-white/90 hover:text-white transition-colors text-base font-medium px-4 tracking-wide block"
-                      onClick={() => !item.submenu && setIsMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
+                    {item.hash ? (
+                      <HashLink
+                        smooth
+                        to={item.to}
+                        className="text-white/90 hover:text-white transition-colors text-base font-medium px-4 tracking-wide block"
+                        onClick={() => !item.submenu && setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </HashLink>
+                    ) : (
+                      <Link
+                        to={item.to}
+                        className="text-white/90 hover:text-white transition-colors text-base font-medium px-4 tracking-wide block"
+                        onClick={() => !item.submenu && setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
                     {item.submenu && (
                       <motion.div 
                         initial={{ opacity: 0, y: -10 }}

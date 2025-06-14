@@ -10,6 +10,7 @@ import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CertificationPage from './pages/certificates/CertificationPage'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   // Create a Home component that contains the main page content
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="relative w-full min-h-screen bg-light">
         <Navbar />
         <main>

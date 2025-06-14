@@ -165,7 +165,7 @@ const Certifications = () => {
   );
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white to-light overflow-hidden">
+    <section id="certifications" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white to-light overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

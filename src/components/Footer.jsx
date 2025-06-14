@@ -1,5 +1,6 @@
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 const Footer = () => {
   return (
@@ -82,29 +83,29 @@ const Footer = () => {
               <h3 className="text-sm font-semibold uppercase tracking-wider text-white/90 mb-6">Quick Links</h3>
               <ul className="space-y-4">
                 <li>
-                  <Link to="/" className="text-white/70 hover:text-secondary text-sm transition-colors">
+                  <HashLink smooth to="/#hero" className="text-white/70 hover:text-secondary text-sm transition-colors">
                     Home
-                  </Link>
+                  </HashLink>
                 </li>
                 <li>
-                  <Link to="/about" className="text-white/70 hover:text-secondary text-sm transition-colors">
+                  <HashLink smooth to="/#about" className="text-white/70 hover:text-secondary text-sm transition-colors">
                     About Us
-                  </Link>
+                  </HashLink>
                 </li>
                 <li>
-                  <Link to="/services" className="text-white/70 hover:text-secondary text-sm transition-colors">
+                  <HashLink smooth to="/#services" className="text-white/70 hover:text-secondary text-sm transition-colors">
                     Our Services
-                  </Link>
+                  </HashLink>
                 </li>
                 <li>
-                  <Link to="/certifications" className="text-white/70 hover:text-secondary text-sm transition-colors">
+                  <HashLink smooth to="/#certifications" className="text-white/70 hover:text-secondary text-sm transition-colors">
                     Certifications
-                  </Link>
+                  </HashLink>
                 </li>
                 <li>
-                  <Link to="/contact" className="text-white/70 hover:text-secondary text-sm transition-colors">
+                  <HashLink smooth to="/#contact" className="text-white/70 hover:text-secondary text-sm transition-colors">
                     Contact Us
-                  </Link>
+                  </HashLink>
                 </li>
               </ul>
             </div>
