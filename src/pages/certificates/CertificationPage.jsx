@@ -214,7 +214,22 @@ const certificationConfigs = {
     images: {
       overview: '/Business.jpeg',
       benefits: '/Training.jpeg'
-    }
+    },
+    objectives: [
+      'Understand the principles of HACCP and its application in food safety management.',
+      'Identify critical control points and implement monitoring procedures.',
+      'Develop and maintain effective food safety documentation.'
+    ],
+    outcomes: [
+      'Ability to design and implement a HACCP plan.',
+      'Improved understanding of food safety hazards and controls.',
+      'Enhanced skills in risk assessment and documentation.'
+    ],
+    assessments: [
+      'Multiple-choice quiz on HACCP principles.',
+      'Case study analysis of a food safety scenario.',
+      'Practical assignment: Draft a sample HACCP plan.'
+    ]
   }
 };
 
@@ -368,6 +383,103 @@ const CertificationPage = () => {
               </div>
             </motion.div>
           </div>
+
+          {/* --- New Sections: Learning Objective, Outcome, Assessments --- */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
+            {/* Learning Objective */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.08 }}
+              transition={{ duration: 0.6, delay: 0.1, type: 'tween', scale: { duration: 0.22, type: 'spring', stiffness: 180, damping: 18 } }}
+              className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-start relative overflow-hidden"
+            >
+              {/* Animated Background Blobs */}
+              <motion.div
+                className="absolute -top-16 -left-16 w-44 h-44 bg-gradient-to-br from-primary/40 via-secondary/30 to-blue-100/40 rounded-full blur-2xl pointer-events-none z-0"
+                animate={{ x: [0, 20, 0], y: [0, 30, 0], rotate: [0, 30, 0], scale: [1, 1.15, 1] }}
+                transition={{ duration: 12, repeat: Infinity, repeatType: 'loop', ease: 'easeInOut' }}
+              />
+              <motion.div
+                className="absolute top-1/2 left-1/2 w-32 h-32 bg-gradient-to-br from-secondary/30 via-blue-100/40 to-primary/30 rounded-full blur-2xl pointer-events-none z-0"
+                style={{ transform: 'translate(-50%, -50%)' }}
+                animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7], rotate: [0, -20, 0] }}
+                transition={{ duration: 16, repeat: Infinity, repeatType: 'loop', ease: 'easeInOut' }}
+              />
+              <h2 className="text-xl font-bold text-primary mb-4 z-10 relative">Learning Objective</h2>
+              <ul className="space-y-3 z-10 relative">
+                {(config.objectives || ['Objective 1', 'Objective 2', 'Objective 3']).map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <FaCheckCircle className="text-secondary mt-1 flex-shrink-0" />
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+            {/* Learning Outcome */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.08 }}
+              transition={{ duration: 0.6, delay: 0.2, type: 'tween', scale: { duration: 0.22, type: 'spring', stiffness: 180, damping: 18 } }}
+              className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-start relative overflow-hidden"
+            >
+              {/* Animated Background Blobs */}
+              <motion.div
+                className="absolute -bottom-20 -right-20 w-52 h-52 bg-gradient-to-br from-blue-100/50 via-primary/30 to-secondary/30 rounded-full blur-2xl pointer-events-none z-0"
+                animate={{ x: [0, -25, 0], y: [0, -35, 0], rotate: [0, 40, 0], scale: [1, 1.18, 1] }}
+                transition={{ duration: 14, repeat: Infinity, repeatType: 'loop', ease: 'easeInOut' }}
+              />
+              <motion.div
+                className="absolute top-1/3 left-0 w-28 h-28 bg-gradient-to-br from-secondary/40 via-blue-100/30 to-primary/30 rounded-full blur-2xl pointer-events-none z-0"
+                animate={{ x: [0, 10, 0], y: [0, 15, 0], scale: [1, 1.1, 1], rotate: [0, -15, 0] }}
+                transition={{ duration: 18, repeat: Infinity, repeatType: 'loop', ease: 'easeInOut' }}
+              />
+              <h2 className="text-xl font-bold text-primary mb-4 z-10 relative">Learning Outcome</h2>
+              <ul className="space-y-3 z-10 relative">
+                {(config.outcomes || ['Outcome 1', 'Outcome 2', 'Outcome 3']).map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <FaCheckCircle className="text-secondary mt-1 flex-shrink-0" />
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+            {/* Assessments */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.08 }}
+              transition={{ duration: 0.6, delay: 0.3, type: 'tween', scale: { duration: 0.22, type: 'spring', stiffness: 180, damping: 18 } }}
+              className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-start relative overflow-hidden"
+            >
+              {/* Animated Background Blobs */}
+              <motion.div
+                className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-br from-secondary/40 via-blue-100/40 to-primary/30 rounded-full blur-2xl pointer-events-none z-0"
+                animate={{ x: [0, -15, 0], y: [0, 25, 0], scale: [1, 1.13, 1], rotate: [0, 25, 0] }}
+                transition={{ duration: 15, repeat: Infinity, repeatType: 'loop', ease: 'easeInOut' }}
+              />
+              <motion.div
+                className="absolute bottom-0 left-1/2 w-40 h-40 bg-gradient-to-br from-primary/30 via-secondary/30 to-blue-100/40 rounded-full blur-2xl pointer-events-none z-0"
+                style={{ transform: 'translateX(-50%)' }}
+                animate={{ scale: [1, 1.15, 1], opacity: [0.8, 1, 0.8], rotate: [0, -30, 0] }}
+                transition={{ duration: 17, repeat: Infinity, repeatType: 'loop', ease: 'easeInOut' }}
+              />
+              <h2 className="text-xl font-bold text-primary mb-4 z-10 relative">Assessments</h2>
+              <ul className="space-y-3 z-10 relative">
+                {(config.assessments || ['Assessment 1', 'Assessment 2', 'Assessment 3']).map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <FaCheckCircle className="text-secondary mt-1 flex-shrink-0" />
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+          {/* --- End New Sections --- */}
 
           {/* Certification Process */}
           <motion.div

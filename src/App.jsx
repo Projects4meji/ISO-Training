@@ -8,6 +8,7 @@ import Certifications from './components/Certifications'
 import Approved from './components/Approved'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
+import ContactPage from './pages/ContactPage'
 import Footer from './components/Footer'
 import CertificationPage from './pages/certificates/CertificationPage'
 import ScrollToTop from './components/ScrollToTop'
@@ -37,7 +38,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Certifications />} />
             <Route path="/certifications" element={<Certifications />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/certificates/:certId" element={<CertificationPage />} />
           </Routes>
         </main>
